@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>汪逢生的blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-06-16T04:58:36.428Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>wfs2010</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>����</title>
+    <link href="http://yoursite.com/2019/06/16/%E8%AF%84%E8%AF%AD/"/>
+    <id>http://yoursite.com/2019/06/16/评语/</id>
+    <published>2019-06-16T04:54:51.000Z</published>
+    <updated>2019-06-16T04:58:36.428Z</updated>
+    
+    <content type="html"><![CDATA[<p>����������ʦ����̨�����ݲ��ײ������ռ�ݣ��Ǵ�����ҵ���ĳ���������ɦ��Ū�˵��㳡�����װ����������ɣ��ɺ���ͳ����˻��ƵĶ������������������������ˣ��ǲ��Ǹ�������Ը��������ˣ����޵��߹�ȡ�����ĳ����ߣ�ƽ̨��ʧ���ܱ�ʧλ����</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;����������ʦ����̨�����ݲ��ײ������ռ�ݣ��Ǵ�����ҵ���ĳ���������ɦ��Ū�˵��㳡�����װ����������ɣ��ɺ���ͳ����˻��ƵĶ������������������������ˣ��ǲ��Ǹ�������Ը
+      
+    
+    </summary>
+    
+    
+      <category term="����" scheme="http://yoursite.com/tags/%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统</title>
+    <link href="http://yoursite.com/2019/06/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://yoursite.com/2019/06/13/操作系统/</id>
+    <published>2019-06-13T15:47:38.000Z</published>
+    <updated>2019-06-13T16:30:00.002Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><p>(1) 什么是先来先服务磁盘调度调度算法?</p><p>(2) 什么是最短寻道时间优先磁盘调度算法?</p><p>(3) 什么是扫描磁盘调度算法?</p><ol><li>先来先服务磁盘调度算法: 根据进程请求访问磁盘的先后顺序进行调度</li><li>最短寻道时间: 选择距离当前磁头所在磁道最近的磁道进行访问</li><li>扫描算法: 在磁头当前移动的方向上选择与当前磁头所在磁道距离最近的磁道进行访问.</li></ol><hr><ol start="7"><li>把学生和监考老师都看作进程, 学生有N人, 教师1人. 考场门口每次只能进出一个人, 进考场原则是先来先进. 当N个学生都进入考场后, 教师才能发卷子. 学生交卷后可以离开考场. 教师要等收上来全部卷子并封装卷子后才能离开考场.<br> (1) 问共需设置几个进程?<br> (2) 试用P、V操作解决上述问题中的同步和互斥关系.</li></ol><p>(1)n个学生进程 一个老师进程<br>(2)设置信号量mutex= 1</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">in  = 0</span><br><span class="line">out =0</span><br><span class="line">wait= 0</span><br><span class="line">student</span><br><span class="line">&#123;</span><br><span class="line">    p(mutex);</span><br><span class="line">    进入考场;</span><br><span class="line">    v(in);</span><br><span class="line">    v(mutex);</span><br><span class="line">    p(wait);</span><br><span class="line">    开始做卷子;</span><br><span class="line">    交卷;</span><br><span class="line">    v(out);</span><br><span class="line">    p(mutex);</span><br><span class="line">    离开考场;</span><br><span class="line">    v(mutex); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">teacher</span><br><span class="line">&#123;</span><br><span class="line">    for i to n</span><br><span class="line">        p(in)</span><br><span class="line">    发卷子;</span><br><span class="line">    for i to n</span><br><span class="line">        v(wait);</span><br><span class="line">    等待学生们交卷;</span><br><span class="line">    for i to n</span><br><span class="line">        p(out);</span><br><span class="line">    封装卷子;</span><br><span class="line">    p(mutex);</span><br><span class="line">    离开考场;</span><br><span class="line">    v(mutex);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><ol start="8"><li>某商店有两种食品A和B, 最大数量各为m个. 该商店将A,B两种食品搭配出售, 每次各取一个. 为避免食品变质, 遵循先到食品先出售的原则, 有两个食品公司分别不断地供应A,B两种食品(每次一个). 为保证正常销售,  当某种食品的数量比另一种的数量超过k(k&lt;m)个时, 暂停对数量大的食品进货, 补充数量少的食品.<br>(1) 问共需设置几个进程?<br>(2) 试用P,V操作解决上述问题中的同步和互斥关系.<br>(1) 3个进程<br>(2)<br>mutexA=0<br>mutexB=0<br>minA = k<br>minB = k<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">销售()&#123;</span><br><span class="line">    p(mutexA);</span><br><span class="line">    p(mutexB);</span><br><span class="line">    出售食品;</span><br><span class="line">&#125;</span><br><span class="line">A()&#123;</span><br><span class="line">    p(minA)</span><br><span class="line">    供应A食品;</span><br><span class="line">    v(minB)    </span><br><span class="line">    v(mutexA);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B()&#123;</span><br><span class="line">    p(minB)</span><br><span class="line">    供应B食品;</span><br><span class="line">    v(minA)</span><br><span class="line">    v(mutexA);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;操作系统&quot;&gt;&lt;a href=&quot;#操作系统&quot; class=&quot;headerlink&quot; title=&quot;操作系统&quot;&gt;&lt;/a&gt;操作系统&lt;/h1&gt;&lt;p&gt;(1) 什么是先来先服务磁盘调度调度算法?&lt;/p&gt;
+&lt;p&gt;(2) 什么是最短寻道时间优先磁盘调度算法?&lt;/p&gt;
+&lt;p&gt;(3)
+      
+    
+    </summary>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>沙雕一号</title>
+    <link href="http://yoursite.com/2019/06/13/%E6%B2%99%E9%9B%95%E4%B8%80%E5%8F%B7/"/>
+    <id>http://yoursite.com/2019/06/13/沙雕一号/</id>
+    <published>2019-06-13T11:13:56.000Z</published>
+    <updated>2019-06-13T11:19:10.118Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="古早的黄磊张国荣同框合影，黄磊脸好小，哥哥竟然输了，可惜现在黄磊成了大肚腩黄小厨"><a href="#古早的黄磊张国荣同框合影，黄磊脸好小，哥哥竟然输了，可惜现在黄磊成了大肚腩黄小厨" class="headerlink" title="古早的黄磊张国荣同框合影，黄磊脸好小，哥哥竟然输了，可惜现在黄磊成了大肚腩黄小厨"></a>古早的黄磊张国荣同框合影，黄磊脸好小，哥哥竟然输了，可惜现在黄磊成了大肚腩黄小厨</h3><p><img src="http://wimg.spriteapp.cn/ugc/2019/06/05/5cf774a8f2bd6_1.jpg" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;古早的黄磊张国荣同框合影，黄磊脸好小，哥哥竟然输了，可惜现在黄磊成了大肚腩黄小厨&quot;&gt;&lt;a href=&quot;#古早的黄磊张国荣同框合影，黄磊脸好小，哥哥竟然输了，可惜现在黄磊成了大肚腩黄小厨&quot; class=&quot;headerlink&quot; title=&quot;古早的黄磊张国荣同框合影
+      
+    
+    </summary>
+    
+    
+      <category term="搞笑" scheme="http://yoursite.com/tags/%E6%90%9E%E7%AC%91/"/>
+    
+  </entry>
+  
+</feed>
