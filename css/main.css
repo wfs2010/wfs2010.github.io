@@ -1783,7 +1783,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7741ff;
+  background: #ecffff;
 }
 .feed-link,
 .chat {
@@ -2977,7 +2977,7 @@ ul.breadcrumb li+li:last-child {
 }
 @media screen and (min-width: 1200px) {
   body {
-    background-image: url("http://img3.imgtn.bdimg.com/it/u=2583682875,3737420818&fm=26&gp=0.jpg");
+    background-image: url("/images/bg.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
