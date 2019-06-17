@@ -109,6 +109,8 @@
 <meta name="twitter:description" content="更新历史  2019.06.17:laoding1.0初版  关于本博客写作是我一直以来的习惯，从最初的网易博客、博客大巴、Lofter 最终自己搭建了这个独立博客，最初部署在 Github 和 Coding 两个平台，目前部署在独立的阿里云服务器上。正在写一本《计算机系统导论》的教材，希望能为中文计算机教材做出一些贡献。欢迎心平气和以及有价值的讨论，但任何流露戾气、浅薄、反智的留言均不予回复。">
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="汪逢生的blog" type="application/atom+xml">
 
@@ -501,6 +503,10 @@
           
 
   
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
 
 
 
@@ -844,6 +850,35 @@
 
   
 
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '32d31a7e38f454bdeec3',
+    clientSecret: '2c0724944445020754da66ed0d126d3009b43891',
+    repo: 'wfs2010.github.io',
+    owner: 'wfs2010',
+    admin: ['wfs2010'],
+    id: md5(location.pathname),
+    
+      language: 'zh-CN',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
 
   
 
